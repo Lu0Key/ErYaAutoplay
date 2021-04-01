@@ -51,7 +51,9 @@ btn.click(function () {
             console.log("稍等...");
             if (dianji == 0){
                 console.log("加载视频中...");
-                $('.tabtags > span')[1].click();
+                if($('.tabtags > span')[0].title !== "视频"){
+                    $('.tabtags > span')[1].click();
+                }
                 dianji++;
             }
             setTimeout(function () {
@@ -83,7 +85,7 @@ btn.click(function () {
         }
         //如果播放结束
         
-        if (spans == 100 || count === "1") {
+        if (spans == 100 || count !== "2") {
             var cells=$("#selector .currents").parent().parent();
             console.log("已经完成："+$("#selector .currents >a").attr('title'));
             ncell = cells.find(".ncells");
